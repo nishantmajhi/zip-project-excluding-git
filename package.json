@@ -1,0 +1,51 @@
+{
+  "name": "zip-project-excluding-git",
+  "displayName": "Zip Project (Excluding Git-Ignored Files)",
+  "description": "Creates a zip archive of your project, excluding .git and everything matched by .gitignore.",
+  "version": "0.1.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "publisher": "your-publisher-name",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "zipProjectExcludingGit.zip",
+        "title": "Zip Project (Excluding Git-Ignored Files)"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "zipProjectExcludingGit.zip",
+          "group": "6_zip",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "test": "npm run compile && node --test \"tests/*.test.js\""
+  },
+  "devDependencies": {
+    "@types/archiver": "^8.0.0",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "ignore-5": "npm:ignore@5.3.2",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "ignore": "^7.0.10"
+  }
+}
